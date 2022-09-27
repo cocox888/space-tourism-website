@@ -1,0 +1,1 @@
+exec < /dev/tty && yarn run cz --hook || true
