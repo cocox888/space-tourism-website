@@ -13,6 +13,8 @@ export const GlobalStyles = createGlobalStyle`
     body {
         min-height: 100vh;
         width: 100%;
+		background-image: url('./assets/home/background-home-desktop.jpg');
+		background-size: cover;
     }
 
     img {
