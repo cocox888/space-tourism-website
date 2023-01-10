@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import { theme } from '../../styles/variables'
 
 export const Container = styled.header`
-	margin-top: 4rem;
+	padding-top: 4rem;
+	position: relative;
 
 	.content {
 		display: flex;
@@ -20,8 +21,8 @@ export const Container = styled.header`
 
 		nav {
 			display: flex;
-			justify-content: center;
 			flex: 1;
+			justify-content: center;
 			height: inherit;
 			margin-left: 3.2rem;
 			background: rgba(255, 255, 255, 0.04);
@@ -40,10 +41,10 @@ export const Container = styled.header`
 						display: flex;
 						align-items: center;
 						height: inherit;
-						font-size: 1.6rem;
+						font-size: ${theme.sizes.font16};
 						letter-spacing: 2.7px;
 						color: ${theme.colors.target};
-						font-family: 'Barlow Condensed';
+						font-family: ${theme.family.familyB};
 
 						&::after {
 							content: '';
@@ -66,7 +67,7 @@ export const Container = styled.header`
 						}
 
 						span {
-							font-size: 1.6rem;
+							font-size: ${theme.sizes.font16};
 							font-weight: bold;
 							margin-right: 1rem;
 						}

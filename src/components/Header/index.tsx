@@ -1,9 +1,12 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { PageContainer } from '../mainComponents'
 
 import { Container } from './styles'
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
+	const activeClassName = 'active'
+
 	return (
 		<Container>
 			<PageContainer>
@@ -27,24 +30,44 @@ const Header: React.FC = () => {
 					<nav>
 						<ul>
 							<li>
-								<a href='#'>
+								<NavLink
+									to='/'
+									className={({ isActive }) =>
+										isActive ? activeClassName : undefined
+									}
+								>
 									<span>00</span>HOME
-								</a>
+								</NavLink>
 							</li>
 							<li>
-								<a href='#'>
+								<NavLink
+									to='/destination'
+									className={({ isActive }) =>
+										isActive ? activeClassName : undefined
+									}
+								>
 									<span>01</span>DESTINATION
-								</a>
+								</NavLink>
 							</li>
 							<li>
-								<a href='#'>
-									<span>04</span>CREW
-								</a>
+								<NavLink
+									to='/crew'
+									className={({ isActive }) =>
+										isActive ? activeClassName : undefined
+									}
+								>
+									<span>02</span>CREW
+								</NavLink>
 							</li>
 							<li>
-								<a href='#'>
+								<NavLink
+									to='/technology'
+									className={({ isActive }) =>
+										isActive ? activeClassName : undefined
+									}
+								>
 									<span>03</span>TECHNOLOGY
-								</a>
+								</NavLink>
 							</li>
 						</ul>
 					</nav>
@@ -53,5 +76,3 @@ const Header: React.FC = () => {
 		</Container>
 	)
 }
-
-export { Header }
