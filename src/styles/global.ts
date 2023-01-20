@@ -13,9 +13,14 @@ export const GlobalStyles = createGlobalStyle`
     body {
         min-height: 100vh;
         width: 100%;
+		background-color: #000;
 		background-image: url('./assets/home/background-home-desktop.jpg');
 		background-size: cover;
     }
+
+	body.bg-destination {
+		background-image: url('./assets/destination/background-destination-desktop.jpg');
+	}
 
     img {
         width: 100%;

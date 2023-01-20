@@ -12,7 +12,7 @@ export const Home: React.FC = () => {
 				<div className='content'>
 					<div className='text-area'>
 						<Heading
-							level={5}
+							level={1}
 							color={'secondary'}
 							size={'font28'}
 							fontWeight={400}
@@ -22,7 +22,7 @@ export const Home: React.FC = () => {
 							SO, YOU WANT TO TRAVEL TO
 						</Heading>
 						<Heading
-							level={1}
+							level={2}
 							color={'target'}
 							size={'font150'}
 							fontWeight={400}

@@ -6,7 +6,7 @@ type HeadingProps = {
 	color?: keyof typeof theme.colors
 	size?: keyof typeof theme.sizes
 	fontWeight?: 400 | 700
-	letterSpacing?: 2.35 | 4.75
+	letterSpacing?: 2.36 | 4.75
 	level: 1 | 2 | 3 | 4 | 5 | 6
 }
 
