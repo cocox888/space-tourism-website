@@ -7,32 +7,23 @@ export const Container = styled.div`
 	.content {
 		padding: 0 11.5rem 0 11rem;
 
-		h5 {
-			span {
-				margin-right: 2.8rem;
-				font-size: inherit;
-				font-weight: 700;
-				opacity: 25%;
-			}
-		}
-
 		.main {
 			display: flex;
 			justify-content: space-between;
 			margin-top: 9rem;
 
-			.destination-image {
+			.img-area {
 				display: flex;
 				flex: 1;
 				padding-left: 6rem;
 
 				img {
-					width: 44.5rem;
-					height: 44.5rem;
+					max-width: 44.5rem;
+					height: 100%;
 				}
 			}
 
-			.destination-info {
+			.info {
 				display: flex;
 				flex-direction: column;
 				max-width: 44.4rem;

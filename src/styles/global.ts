@@ -11,15 +11,27 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        min-height: 100vh;
+		display: flex;
+        height: 100vh;
         width: 100%;
+		overflow-y: hidden;
 		background-color: #000;
 		background-image: url('./assets/home/background-home-desktop.jpg');
 		background-size: cover;
     }
 
+	#root {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
 	body.bg-destination {
 		background-image: url('./assets/destination/background-destination-desktop.jpg');
+	}
+
+	body.bg-crew {
+		background-image: url('./assets/crew/background-crew-desktop.jpg');
 	}
 
     img {

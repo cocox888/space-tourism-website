@@ -23,7 +23,7 @@ const Destination: React.FC = () => {
 	const [destinationIndex, setDestinationIndex] = useState<number>()
 
 	const { data } = useQuery<destinationType[]>(
-		'data',
+		'destinations',
 		() => getData('destinations'),
 		{
 			staleTime: 5000 * 60,
@@ -52,12 +52,6 @@ const Destination: React.FC = () => {
 	}, [destinationIndex])
 
 	const handleClickNavLink = (e: React.MouseEvent<HTMLElement>) => {
-		document
-			.querySelectorAll('.right nav a')
-			.forEach(link => link.classList.remove('active'))
-
-		e.currentTarget.classList.add('active')
-
 		const newDestinationIndex = e.currentTarget.getAttribute('data-number')
 
 		if (newDestinationIndex && data) {
@@ -76,145 +70,104 @@ const Destination: React.FC = () => {
 	return (
 		<Container>
 			<PageContainer>
-				{data && (
-					<div className='content'>
-						<Heading
-							level={1}
-							color={'target'}
-							size={'font28'}
-							fontWeight={400}
-							letterSpacing={4.75}
-							fontFamily={'familyB'}
-						>
-							<span>01</span>
-							PICK YOUR DESTINATION
-						</Heading>
-						<div className='main'>
-							<div className='destination-image'>
-								<img
-									src={destination?.images.webp}
-									alt={destination?.name + 'image'}
-								/>
-							</div>
-							<div className='destination-info'>
-								<nav>
-									<ul>
-										{data?.map((destination, index) => (
-											<li key={index}>
-												<a
-													href='#'
-													className={
-														index ===
-														destinationIndex
-															? 'active'
-															: ''
-													}
-													data-number={index}
-													onClick={handleClickNavLink}
-												>
-													{destination.name.toUpperCase()}
-												</a>
-											</li>
-										))}
-										{/*
-										<li>
+				<div className='content'>
+					<Heading
+						level={1}
+						color={'target'}
+						size={'font28'}
+						fontWeight={400}
+						letterSpacing={4.75}
+						fontFamily={'familyB'}
+					>
+						<span>01</span>
+						PICK YOUR DESTINATION
+					</Heading>
+					<div className='main'>
+						<div className='img-area'>
+							<img
+								src={destination?.images.webp}
+								alt={destination?.name + 'image'}
+							/>
+						</div>
+						<div className='info'>
+							<nav>
+								<ul>
+									{data?.map((destination, index) => (
+										<li key={index}>
 											<a
 												href='#'
-												data-number={0}
+												className={
+													index === destinationIndex
+														? 'active'
+														: ''
+												}
+												data-number={index}
 												onClick={handleClickNavLink}
 											>
-												MOON
+												{destination.name.toUpperCase()}
 											</a>
 										</li>
-										<li>
-											<a
-												href='#'
-												data-number={1}
-												onClick={handleClickNavLink}
-											>
-												MARS
-											</a>
-										</li>
-										<li>
-											<a
-												href='#'
-												data-number={2}
-												onClick={handleClickNavLink}
-											>
-												EUROPA
-											</a>
-										</li>
-										<li>
-											<a
-												href='#'
-												data-number={3}
-												onClick={handleClickNavLink}
-											>
-												TITAN
-											</a>
-										</li>
-		*/}
-									</ul>
-								</nav>
-								<Heading
-									level={2}
-									color={'target'}
-									size={'font100'}
-									fontWeight={400}
-									fontFamily={'familyA'}
-								>
-									{destination?.name.toUpperCase()}
-								</Heading>
-								<BodyText>{destination?.description}</BodyText>
-								<div className='line'></div>
-								<div className='footer'>
-									<div className='distance'>
-										<Heading
-											level={3}
-											color={'secondary'}
-											size={'font14'}
-											fontWeight={400}
-											letterSpacing={2.36}
-											fontFamily={'familyB'}
-										>
-											AVG. DISTANCE
-										</Heading>
-										<Heading
-											level={4}
-											color={'target'}
-											size={'font28'}
-											fontWeight={400}
-											fontFamily={'familyA'}
-										>
-											{destination?.distance.toUpperCase()}
-										</Heading>
-									</div>
-									<div className='travel-time'>
-										<Heading
-											level={3}
-											color={'secondary'}
-											size={'font14'}
-											fontWeight={400}
-											letterSpacing={2.36}
-											fontFamily={'familyB'}
-										>
-											EST. TRAVEL TIME
-										</Heading>
-										<Heading
-											level={4}
-											color={'target'}
-											size={'font28'}
-											fontWeight={400}
-											fontFamily={'familyA'}
-										>
-											{destination?.travel.toUpperCase()}
-										</Heading>
-									</div>
+									))}
+								</ul>
+							</nav>
+							<Heading
+								level={2}
+								color={'target'}
+								size={'font100'}
+								fontWeight={400}
+								fontFamily={'familyA'}
+							>
+								{destination?.name.toUpperCase()}
+							</Heading>
+							<BodyText>{destination?.description}</BodyText>
+							<div className='line'></div>
+							<div className='footer'>
+								<div className='distance'>
+									<Heading
+										level={3}
+										color={'secondary'}
+										size={'font14'}
+										fontWeight={400}
+										letterSpacing={2.36}
+										fontFamily={'familyB'}
+									>
+										AVG. DISTANCE
+									</Heading>
+									<Heading
+										level={4}
+										color={'target'}
+										size={'font28'}
+										fontWeight={400}
+										fontFamily={'familyA'}
+									>
+										{destination?.distance.toUpperCase()}
+									</Heading>
+								</div>
+								<div className='travel-time'>
+									<Heading
+										level={3}
+										color={'secondary'}
+										size={'font14'}
+										fontWeight={400}
+										letterSpacing={2.36}
+										fontFamily={'familyB'}
+									>
+										EST. TRAVEL TIME
+									</Heading>
+									<Heading
+										level={4}
+										color={'target'}
+										size={'font28'}
+										fontWeight={400}
+										fontFamily={'familyA'}
+									>
+										{destination?.travel.toUpperCase()}
+									</Heading>
 								</div>
 							</div>
 						</div>
 					</div>
-				)}
+				</div>
 			</PageContainer>
 		</Container>
 	)
