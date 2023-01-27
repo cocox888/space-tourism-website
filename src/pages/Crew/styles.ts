@@ -27,8 +27,8 @@ export const Container = styled.div`
 					display: flex;
 					flex-direction: column;
 					gap: 1rem;
-					margin-top: 15.5rem;
 					height: 25rem;
+					margin-top: 15.5rem;
 
 					h2 {
 						opacity: 50%;

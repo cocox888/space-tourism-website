@@ -42,6 +42,6 @@ export const Heading = styled('h1').attrs<HeadingProps>(({ level }) => ({
 export const BodyText = styled.p`
 	color: ${theme.colors.secondary};
 	font-size: ${theme.sizes.font18};
-	font-family: ${theme.family.familyB};
+	font-family: ${theme.family.familyC};
 	line-height: 3.2rem;
 `

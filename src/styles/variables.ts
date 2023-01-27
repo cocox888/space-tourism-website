@@ -7,6 +7,7 @@ export const theme = {
 	family: {
 		familyA: 'Bellefair',
 		familyB: 'Barlow Condensed',
+		familyC: 'Barlow',
 	},
 	sizes: {
 		font14: '1.4rem',

@@ -13,13 +13,10 @@ export const Container = styled.div`
 			margin-top: 9rem;
 
 			.img-area {
-				display: flex;
-				flex: 1;
 				padding-left: 6rem;
 
 				img {
 					max-width: 44.5rem;
-					height: 100%;
 				}
 			}
 

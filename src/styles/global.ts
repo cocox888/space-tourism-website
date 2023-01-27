@@ -34,6 +34,10 @@ export const GlobalStyles = createGlobalStyle`
 		background-image: url('./assets/crew/background-crew-desktop.jpg');
 	}
 
+	body.bg-technology {
+		background-image: url('./assets/technology/background-technology-desktop.jpg');
+	}
+
     img {
         width: 100%;
     }
