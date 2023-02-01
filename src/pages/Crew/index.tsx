@@ -78,7 +78,30 @@ const Crew: React.FC = () => {
 						MEET YOUT CREW
 					</Heading>
 					<div className='main'>
+						<div className='img-area--mobile'>
+							<img
+								src={person?.images.png}
+								alt={person?.name + 'image'}
+							/>
+						</div>
 						<div className='info'>
+							<nav className='nav-mobile'>
+								<ul>
+									{data?.map((person, index) => (
+										<li key={index}>
+											<button
+												className={
+													index === personIndex
+														? 'active'
+														: ''
+												}
+												data-number={index}
+												onClick={handleClickNavButton}
+											></button>
+										</li>
+									))}
+								</ul>
+							</nav>
 							<div className='text-area'>
 								<Heading
 									level={2}
@@ -99,7 +122,7 @@ const Crew: React.FC = () => {
 								</Heading>
 								<BodyText>{person?.bio}</BodyText>
 							</div>
-							<nav>
+							<nav className='nav'>
 								<ul>
 									{data?.map((person, index) => (
 										<li key={index}>

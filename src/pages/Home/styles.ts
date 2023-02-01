@@ -2,17 +2,44 @@ import styled from 'styled-components'
 import { theme } from '../../styles/variables'
 
 export const Container = styled.div`
-	margin-top: 25rem;
+	display: flex;
+	flex: 1;
+	padding: 11rem 0;
 
 	.content {
 		display: flex;
-		padding: 0 11.5rem 0 11rem;
+		flex: 1;
+		align-items: center;
+
+		@media (max-width: ${theme.devices.tablet}) {
+			flex-direction: column;
+			align-items: center;
+		}
 
 		.text-area {
-			width: 44.4rem;
+			max-width: 44.4rem;
+			width: 100%;
 
 			h1 {
 				margin: 2.4rem 0 1.8rem 0;
+
+				@media (max-width: ${theme.devices.tablet}) {
+					font-size: ${theme.sizes.font20};
+				}
+
+				@media (max-width: ${theme.devices.mobile}) {
+					font-size: ${theme.sizes.font16};
+				}
+			}
+
+			h2 {
+				@media (max-width: ${theme.devices.mobile}) {
+					font-size: ${theme.sizes.font80};
+				}
+			}
+
+			@media (max-width: ${theme.devices.tablet}) {
+				text-align: center;
 			}
 		}
 
@@ -39,7 +66,27 @@ export const Container = styled.div`
 				&:hover {
 					box-shadow: 0 0 0 83px rgb(255, 255, 255, 0.1);
 				}
+
+				@media (max-width: ${theme.devices.tablet}) {
+					width: 24.2rem;
+					height: 24.2rem;
+				}
+
+				@media (max-width: ${theme.devices.mobile}) {
+					width: 15rem;
+					height: 15rem;
+					font-size: 2rem;
+				}
+			}
+
+			@media (max-width: ${theme.devices.mobile}) {
+				align-items: flex-start;
+				margin-top: 8rem;
 			}
 		}
+	}
+
+	@media (max-width: ${theme.devices.mobile}) {
+		padding: 2.4rem 0;
 	}
 `

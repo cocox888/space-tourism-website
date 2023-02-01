@@ -2,8 +2,11 @@ import styled from 'styled-components'
 import { theme } from '../../styles/variables'
 
 export const Container = styled.header`
-	padding-top: 4rem;
 	position: relative;
+	max-width: 144rem;
+	width: 100%;
+	padding: 4rem 5.6rem 0;
+	margin: 0 auto;
 
 	.content {
 		display: flex;
@@ -11,22 +14,77 @@ export const Container = styled.header`
 		align-items: center;
 		height: 9.6rem;
 
+		.logo {
+			width: 4.8rem;
+			height: 4.8rem;
+
+			@media (max-width: ${theme.devices.mobile}) {
+				width: 4rem;
+				height: 4rem;
+			}
+		}
+
 		.line {
 			z-index: 1;
-			width: 47.3rem;
+			max-width: 47.3rem;
+			width: 100%;
 			height: 0.1rem;
 			transform: translateX(6.3rem);
 			background-color: rgba(255, 255, 255, 0.25);
+
+			@media (max-width: ${theme.devices.tablet}) {
+				display: none;
+			}
 		}
 
-		nav {
+		.burger-btn {
+			display: none;
+			z-index: 99;
+			width: 2.4rem;
+			border-top: 3px solid ${theme.colors.secondary};
+			color: ${theme.colors.secondary};
+			transition: 0.3s;
+
+			&::before,
+			&::after {
+				content: '';
+				position: relative;
+				display: flex;
+				width: inherit;
+				height: 3px;
+				margin-top: 6px;
+				background-color: currentColor;
+				transition: 0.3s;
+			}
+
+			&.is-open {
+				border-top-color: transparent;
+
+				&::before {
+					transform: rotate(45deg);
+				}
+
+				&::after {
+					transform: rotate(-45deg);
+					top: -9px;
+				}
+			}
+
+			@media (max-width: ${theme.devices.mobile}) {
+				display: block;
+			}
+		}
+
+		.nav {
 			display: flex;
 			flex: 1;
 			justify-content: center;
 			height: inherit;
+			padding: 0 5.6rem;
 			margin-left: 3.2rem;
 			background: rgba(255, 255, 255, 0.04);
 			backdrop-filter: blur(40.7742px);
+			transition: 0.3s;
 
 			ul {
 				display: flex;
@@ -60,6 +118,10 @@ export const Container = styled.header`
 						&.active::after {
 							background-color: ${theme.colors.target};
 							transform: scaleX(1);
+
+							@media (max-width: ${theme.devices.mobile}) {
+								display: none;
+							}
 						}
 
 						&:hover::after {
@@ -70,10 +132,74 @@ export const Container = styled.header`
 							font-size: ${theme.sizes.font16};
 							font-weight: bold;
 							margin-right: 1rem;
+
+							@media (max-width: ${theme.devices.tablet}) {
+								display: none;
+							}
+
+							@media (max-width: ${theme.devices.mobile}) {
+								display: block;
+							}
+						}
+
+						@media (max-width: ${theme.devices.tablet}) {
+							font-size: ${theme.sizes.font14};
+						}
+
+						@media (max-width: ${theme.devices.mobile}) {
+							height: auto;
+							font-size: ${theme.sizes.font16};
 						}
 					}
+
+					@media (max-width: ${theme.devices.mobile}) {
+						height: auto;
+					}
+				}
+
+				@media (max-width: ${theme.devices.tablet}) {
+					gap: 3.6rem;
+				}
+
+				@media (max-width: ${theme.devices.mobile}) {
+					flex-direction: column;
+					height: auto;
+				}
+			}
+
+			@media (max-width: ${theme.devices.tablet}) {
+				position: absolute;
+				right: 0;
+				max-width: 45rem;
+				width: 100%;
+				padding: 0;
+				margin-left: 0;
+			}
+
+			@media (max-width: ${theme.devices.mobile}) {
+				justify-content: start;
+				position: fixed;
+				top: 0;
+				bottom: 0;
+				z-index: 2;
+				width: 70vw;
+				height: 100vh;
+				padding-left: 3.2rem;
+				padding-top: 12rem;
+				display: none;
+
+				&.active {
+					display: flex;
 				}
 			}
 		}
+	}
+
+	@media (max-width: ${theme.devices.tablet}) {
+		padding: 0 4rem;
+	}
+
+	@media (max-width: ${theme.devices.mobile}) {
+		padding: 0 2.4rem;
 	}
 `

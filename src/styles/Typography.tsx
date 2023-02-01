@@ -44,4 +44,12 @@ export const BodyText = styled.p`
 	font-size: ${theme.sizes.font18};
 	font-family: ${theme.family.familyC};
 	line-height: 3.2rem;
+
+	@media (max-width: ${theme.devices.tablet}) {
+		font-size: ${theme.sizes.font16};
+	}
+
+	@media (max-width: ${theme.devices.mobile}) {
+		font-size: ${theme.sizes.font15};
+	}
 `

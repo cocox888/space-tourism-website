@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { theme } from './variables'
 
 export const GlobalStyles = createGlobalStyle`
     *,
@@ -12,12 +13,19 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
 		display: flex;
-        height: 100vh;
+        min-height: 100vh;
         width: 100%;
-		overflow-y: hidden;
 		background-color: #000;
 		background-image: url('./assets/home/background-home-desktop.jpg');
 		background-size: cover;
+
+		@media (max-width: ${theme.devices.tablet}) {
+			background-image: url('./assets/home/background-home-tablet.jpg');
+		}
+
+		@media (max-width: ${theme.devices.mobile}) {
+			background-image: url('./assets/home/background-home-mobile.jpg');
+		}
     }
 
 	#root {
@@ -28,14 +36,38 @@ export const GlobalStyles = createGlobalStyle`
 
 	body.bg-destination {
 		background-image: url('./assets/destination/background-destination-desktop.jpg');
+
+		@media (max-width: ${theme.devices.tablet}) {
+			background-image: url('./assets/destination/background-destination-tablet.jpg');
+		}
+
+		@media (max-width: ${theme.devices.mobile}) {
+			background-image: url('./assets/destination/background-destination-mobile.jpg');
+		}
 	}
 
 	body.bg-crew {
 		background-image: url('./assets/crew/background-crew-desktop.jpg');
+
+		@media (max-width: ${theme.devices.tablet}) {
+			background-image: url('./assets/crew/background-crew-tablet.jpg');
+		}
+
+		@media (max-width: ${theme.devices.mobile}) {
+			background-image: url('./assets/crew/background-crew-mobile.jpg');
+		}
 	}
 
 	body.bg-technology {
 		background-image: url('./assets/technology/background-technology-desktop.jpg');
+
+		@media (max-width: ${theme.devices.tablet}) {
+			background-image: url('./assets/technology/background-technology-tablet.jpg');
+		}
+
+		@media (max-width: ${theme.devices.mobile}) {
+			background-image: url('./assets/technology/background-technology-mobile.jpg');
+		}
 	}
 
     img {

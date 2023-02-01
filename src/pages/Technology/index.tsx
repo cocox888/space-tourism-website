@@ -81,6 +81,12 @@ const Technology: React.FC = () => {
 						SPACE LAUNCH 101
 					</Heading>
 					<div className='main'>
+						<div className='img-area--mobile'>
+							<img
+								src={technology?.images.landscape}
+								alt={technology?.images.landscape + 'image'}
+							/>
+						</div>
 						<div className='info'>
 							<nav>
 								<ul>

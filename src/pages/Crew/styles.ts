@@ -11,12 +11,40 @@ export const Container = styled.div`
 		display: flex;
 		flex-direction: column;
 		flex: 1;
-		padding: 0 11.5rem 0 11rem;
+
+		h1 {
+			@media (max-width: ${theme.devices.tablet}) {
+				font-size: ${theme.sizes.font20};
+			}
+
+			@media (max-width: ${theme.devices.mobile}) {
+				font-size: ${theme.sizes.font16};
+				text-align: center;
+			}
+		}
 
 		.main {
 			display: flex;
 			flex: 1;
 			position: relative;
+
+			.img-area--mobile {
+				display: none;
+				width: 100%;
+				height: 26rem;
+				border-bottom: 1px solid #979797;
+				margin-top: 3.2rem;
+
+				img {
+					max-width: 17.7rem;
+				}
+
+				@media (max-width: ${theme.devices.mobile}) {
+					display: flex;
+					justify-content: center;
+					align-items: flex-end;
+				}
+			}
 
 			.info {
 				display: flex;
@@ -32,14 +60,42 @@ export const Container = styled.div`
 
 					h2 {
 						opacity: 50%;
+
+						@media (max-width: ${theme.devices.tablet}) {
+							font-size: ${theme.sizes.font24};
+						}
+
+						@media (max-width: ${theme.devices.mobile}) {
+							font-size: ${theme.sizes.font16};
+						}
+					}
+
+					h3 {
+						@media (max-width: ${theme.devices.tablet}) {
+							font-size: ${theme.sizes.font40};
+						}
+
+						@media (max-width: ${theme.devices.mobile}) {
+							font-size: ${theme.sizes.font24};
+						}
 					}
 
 					p {
 						max-width: 44rem;
+
+						@media (max-width: ${theme.devices.tablet}) {
+							max-width: none;
+						}
+					}
+
+					@media (max-width: ${theme.devices.tablet}) {
+						margin-top: 6.4rem;
+						height: auto;
 					}
 				}
 
-				nav {
+				.nav,
+				.nav-mobile {
 					margin-top: 15rem;
 
 					ul {
@@ -62,9 +118,40 @@ export const Container = styled.div`
 								&.active {
 									opacity: 100%;
 								}
+
+								@media (max-width: ${theme.devices.tablet}) {
+									width: 1rem;
+									height: 1rem;
+								}
 							}
 						}
+
+						@media (max-width: ${theme.devices.tablet}) {
+							gap: 1.6rem;
+						}
 					}
+
+					@media (max-width: ${theme.devices.tablet}) {
+						margin-top: 4rem;
+					}
+				}
+
+				.nav {
+					@media (max-width: ${theme.devices.mobile}) {
+						display: none;
+					}
+				}
+
+				.nav-mobile {
+					display: none;
+
+					@media (max-width: ${theme.devices.mobile}) {
+						display: flex;
+					}
+				}
+
+				@media (max-width: ${theme.devices.tablet}) {
+					align-items: center;
 				}
 			}
 
@@ -72,8 +159,38 @@ export const Container = styled.div`
 				display: flex;
 				flex-direction: column;
 				justify-content: flex-end;
+				margin-left: 6.4rem;
 				margin-right: -3rem;
+
+				img {
+					@media (max-width: ${theme.devices.tablet}) {
+						max-width: 36rem;
+					}
+				}
+
+				@media (max-width: ${theme.devices.tablet}) {
+					margin-left: 0;
+					align-items: center;
+				}
+
+				@media (max-width: ${theme.devices.mobile}) {
+					display: none;
+				}
+			}
+
+			@media (max-width: ${theme.devices.tablet}) {
+				flex-direction: column;
+				text-align: center;
+				padding: 0 6.4rem;
+			}
+
+			@media (max-width: ${theme.devices.mobile}) {
+				padding: 0 0 4rem 0;
 			}
 		}
+	}
+
+	@media (max-width: ${theme.devices.mobile}) {
+		margin-top: 2.4rem;
 	}
 `

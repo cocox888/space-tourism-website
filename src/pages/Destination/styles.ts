@@ -3,20 +3,53 @@ import { theme } from '../../styles/variables'
 
 export const Container = styled.div`
 	margin-top: 7.5rem;
+	display: flex;
+	flex: 1;
+
+	@media (max-width: ${theme.devices.tablet}) {
+		margin-top: 7.5rem;
+	}
+
+	h1 {
+		@media (max-width: ${theme.devices.tablet}) {
+			font-size: ${theme.sizes.font20};
+		}
+
+		@media (max-width: ${theme.devices.mobile}) {
+			font-size: ${theme.sizes.font16};
+			text-align: center;
+		}
+	}
 
 	.content {
-		padding: 0 11.5rem 0 11rem;
+		display: flex;
+		flex-direction: column;
+		flex: 1;
 
 		.main {
 			display: flex;
 			justify-content: space-between;
-			margin-top: 9rem;
+			flex: 1;
+			align-items: center;
+			padding: 6.4rem 0;
 
 			.img-area {
 				padding-left: 6rem;
 
 				img {
 					max-width: 44.5rem;
+
+					@media (max-width: ${theme.devices.tablet}) {
+						max-width: 30rem;
+					}
+
+					@media (max-width: ${theme.devices.mobile}) {
+						max-width: 17rem;
+					}
+				}
+
+				@media (max-width: ${theme.devices.tablet}) {
+					padding-left: 0;
 				}
 			}
 
@@ -25,6 +58,7 @@ export const Container = styled.div`
 				flex-direction: column;
 				max-width: 44.4rem;
 				flex: 1;
+				margin-left: 6.4rem;
 
 				nav {
 					display: flex;
@@ -84,15 +118,23 @@ export const Container = styled.div`
 					}
 				}
 
-				p {
-					margin-top: 2.4rem;
+				h2 {
+					font-size: ${theme.sizes.font80};
+
+					@media (max-width: ${theme.devices.mobile}) {
+						font-size: ${theme.sizes.font56};
+					}
 				}
 
 				.line {
 					width: 100%;
 					height: 1px;
 					margin-top: 4.8rem;
-					background-color: #383b4b;
+					background-color: #979797;
+				}
+
+				p {
+					margin-top: 2.4rem;
 				}
 
 				.footer {
@@ -107,9 +149,40 @@ export const Container = styled.div`
 
 					.travel-time {
 						margin-left: 7.5rem;
+
+						@media (max-width: ${theme.devices.mobile}) {
+							margin-left: 0;
+						}
+					}
+
+					@media (max-width: ${theme.devices.mobile}) {
+						flex-direction: column;
+						gap: 4rem;
 					}
 				}
+
+				@media (max-width: ${theme.devices.tablet}) {
+					justify-content: center;
+					align-items: center;
+					max-width: none;
+					padding: 4rem 12rem;
+					margin-left: 0;
+					text-align: center;
+				}
+
+				@media (max-width: ${theme.devices.mobile}) {
+					padding: 4rem 0;
+				}
+			}
+
+			@media (max-width: ${theme.devices.tablet}) {
+				flex-direction: column;
+				align-items: center;
 			}
 		}
+	}
+
+	@media (max-width: ${theme.devices.mobile}) {
+		margin-top: 2.4rem;
 	}
 `
