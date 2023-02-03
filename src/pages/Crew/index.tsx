@@ -80,7 +80,7 @@ const Crew: React.FC = () => {
 					<div className='main'>
 						<div className='img-area--mobile'>
 							<img
-								src={person?.images.png}
+								src={person?.images.webp}
 								alt={person?.name + 'image'}
 							/>
 						</div>
@@ -142,7 +142,7 @@ const Crew: React.FC = () => {
 						</div>
 						<div className='img-area'>
 							<img
-								src={person?.images.png}
+								src={person?.images.webp}
 								alt={person?.name + 'image'}
 							/>
 						</div>

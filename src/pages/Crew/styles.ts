@@ -152,6 +152,7 @@ export const Container = styled.div`
 
 				@media (max-width: ${theme.devices.tablet}) {
 					align-items: center;
+					flex: 1;
 				}
 			}
 
@@ -159,7 +160,6 @@ export const Container = styled.div`
 				display: flex;
 				flex-direction: column;
 				justify-content: flex-end;
-				margin-left: 6.4rem;
 				margin-right: -3rem;
 
 				img {
@@ -180,6 +180,7 @@ export const Container = styled.div`
 
 			@media (max-width: ${theme.devices.tablet}) {
 				flex-direction: column;
+				align-items: center;
 				text-align: center;
 				padding: 0 6.4rem;
 			}

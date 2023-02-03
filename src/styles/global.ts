@@ -18,6 +18,7 @@ export const GlobalStyles = createGlobalStyle`
 		background-color: #000;
 		background-image: url('./assets/home/background-home-desktop.jpg');
 		background-size: cover;
+		transition: background-image 0.3s;
 
 		@media (max-width: ${theme.devices.tablet}) {
 			background-image: url('./assets/home/background-home-tablet.jpg');
