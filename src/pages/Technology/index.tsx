@@ -19,6 +19,7 @@ const Technology: React.FC = () => {
 
 	const [technology, setTechnology] = useState<technologyType>()
 	const [technologyIndex, setTechnologyIndex] = useState<number>()
+	const [animate, setAnimate] = useState<boolean>()
 
 	const { data } = useQuery<technologyType[]>(
 		'technology',
@@ -31,6 +32,8 @@ const Technology: React.FC = () => {
 
 	useEffect(() => {
 		document.body.classList.add('bg-technology')
+
+		setAnimate(true)
 
 		return () => {
 			document.body.classList.remove('bg-technology')
@@ -49,8 +52,14 @@ const Technology: React.FC = () => {
 		}
 	}, [technologyIndex])
 
+	useEffect(() => {
+		setTimeout(() => setAnimate(true), 100)
+	}, [animate])
+
 	const handleClickNavButton = (e: React.MouseEvent<HTMLElement>) => {
 		const newTechnologyIndex = e.currentTarget.getAttribute('data-number')
+
+		setAnimate(false)
 
 		if (newTechnologyIndex && data) {
 			setTechnologyIndex(parseInt(newTechnologyIndex))
@@ -107,7 +116,12 @@ const Technology: React.FC = () => {
 									))}
 								</ul>
 							</nav>
-							<div className='text-area'>
+							<div
+								className={`text-area ${
+									animate ? 'animate' : ''
+								}`}
+								data-anime='top'
+							>
 								<Heading
 									level={2}
 									color={'secondary'}
@@ -129,7 +143,10 @@ const Technology: React.FC = () => {
 								<BodyText>{technology?.description}</BodyText>
 							</div>
 						</div>
-						<div className='img-area'>
+						<div
+							className={`img-area ${animate ? 'animate' : ''}`}
+							data-anime='bottom'
+						>
 							<img
 								src={technology?.images.portrait}
 								alt={technology?.images.portrait + 'image'}

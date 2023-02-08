@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PageContainer } from '../../components/mainComponents'
 import { BodyText, Heading } from '../../styles/Typography'
@@ -6,11 +6,20 @@ import { BodyText, Heading } from '../../styles/Typography'
 import { Container } from './styles'
 
 export const Home: React.FC = () => {
+	const [animate, setAnimate] = useState<boolean>()
+
+	useEffect(() => {
+		setAnimate(true)
+	}, [])
+
 	return (
 		<Container>
 			<PageContainer>
 				<div className='content'>
-					<div className='text-area'>
+					<div
+						className={`text-area ${animate ? 'animate' : ''}`}
+						data-anime='left'
+					>
 						<Heading
 							level={1}
 							color={'secondary'}
@@ -37,7 +46,10 @@ export const Home: React.FC = () => {
 							experience!
 						</BodyText>
 					</div>
-					<div className='button-area'>
+					<div
+						className={`button-area ${animate ? 'animate' : ''}`}
+						data-anime='right'
+					>
 						<Link to={'/destination'}>EXPLORE</Link>
 					</div>
 				</div>

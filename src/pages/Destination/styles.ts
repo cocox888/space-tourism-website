@@ -2,6 +2,12 @@ import styled from 'styled-components'
 import { theme } from '../../styles/variables'
 
 export const Container = styled.div`
+	@keyframes spinner {
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
 	margin-top: 7.5rem;
 	display: flex;
 	flex: 1;
@@ -38,6 +44,7 @@ export const Container = styled.div`
 
 				img {
 					max-width: 44.5rem;
+					transition: 0.3s;
 
 					@media (max-width: ${theme.devices.tablet}) {
 						max-width: 30rem;
@@ -46,6 +53,8 @@ export const Container = styled.div`
 					@media (max-width: ${theme.devices.mobile}) {
 						max-width: 17rem;
 					}
+
+					animation: spinner 40s linear infinite;
 				}
 
 				@media (max-width: ${theme.devices.tablet}) {
@@ -118,46 +127,56 @@ export const Container = styled.div`
 					}
 				}
 
-				h2 {
-					font-size: ${theme.sizes.font80};
-
-					@media (max-width: ${theme.devices.mobile}) {
-						font-size: ${theme.sizes.font56};
-					}
-				}
-
-				.line {
-					width: 100%;
-					height: 1px;
-					margin-top: 4.8rem;
-					background-color: #979797;
-				}
-
-				p {
-					margin-top: 2.4rem;
-				}
-
-				.footer {
-					display: flex;
-					margin-top: 2.4rem;
-
-					div {
-						display: flex;
-						flex-direction: column;
-						gap: 1.1rem;
-					}
-
-					.travel-time {
-						margin-left: 7.5rem;
+				.text-area {
+					h2 {
+						font-size: ${theme.sizes.font80};
 
 						@media (max-width: ${theme.devices.mobile}) {
-							margin-left: 0;
+							font-size: ${theme.sizes.font56};
 						}
 					}
 
-					@media (max-width: ${theme.devices.mobile}) {
-						flex-direction: column;
-						gap: 4rem;
+					.line {
+						width: 100%;
+						height: 1px;
+						margin-top: 4.8rem;
+						background-color: #979797;
+					}
+
+					p {
+						margin-top: 2.4rem;
+					}
+
+					.footer {
+						display: flex;
+						margin-top: 2.4rem;
+
+						div {
+							display: flex;
+							flex-direction: column;
+							gap: 1.1rem;
+						}
+
+						.travel-time {
+							margin-left: 7.5rem;
+
+							@media (max-width: ${theme.devices.mobile}) {
+								margin-left: 0;
+							}
+						}
+
+						@media (max-width: ${theme.devices.tablet}) {
+							justify-content: center;
+						}
+
+						@media (max-width: ${theme.devices.mobile}) {
+							flex-direction: column;
+							gap: 4rem;
+						}
+					}
+
+					@media (max-width: ${theme.devices.tablet}) {
+						text-align: center;
 					}
 				}
 
@@ -167,7 +186,6 @@ export const Container = styled.div`
 					max-width: none;
 					padding: 4rem 12rem;
 					margin-left: 0;
-					text-align: center;
 				}
 
 				@media (max-width: ${theme.devices.mobile}) {

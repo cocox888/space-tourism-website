@@ -20,6 +20,7 @@ const Crew: React.FC = () => {
 
 	const [person, setPerson] = useState<personType>()
 	const [personIndex, setPersonIndex] = useState<number>()
+	const [animate, setAnimate] = useState<boolean>()
 
 	const { data } = useQuery<personType[]>('crew', () => getData('crew'), {
 		staleTime: 5000 * 60,
@@ -28,6 +29,8 @@ const Crew: React.FC = () => {
 
 	useEffect(() => {
 		document.body.classList.add('bg-crew')
+
+		setAnimate(true)
 
 		return () => {
 			document.body.classList.remove('bg-crew')
@@ -41,6 +44,10 @@ const Crew: React.FC = () => {
 	}, [data])
 
 	useEffect(() => {
+		setTimeout(() => setAnimate(true), 100)
+	}, [animate])
+
+	useEffect(() => {
 		if (data && personIndex !== undefined) {
 			setPerson(data[personIndex])
 		}
@@ -48,6 +55,8 @@ const Crew: React.FC = () => {
 
 	const handleClickNavButton = (e: React.MouseEvent<HTMLElement>) => {
 		const newPersonIndex = e.currentTarget.getAttribute('data-number')
+
+		setAnimate(false)
 
 		if (newPersonIndex && data) {
 			setPersonIndex(parseInt(newPersonIndex))
@@ -102,7 +111,12 @@ const Crew: React.FC = () => {
 									))}
 								</ul>
 							</nav>
-							<div className='text-area'>
+							<div
+								className={`text-area ${
+									animate ? 'animate' : ''
+								}`}
+								data-anime='left'
+							>
 								<Heading
 									level={2}
 									color={'target'}
@@ -140,7 +154,10 @@ const Crew: React.FC = () => {
 								</ul>
 							</nav>
 						</div>
-						<div className='img-area'>
+						<div
+							className={`img-area ${animate ? 'animate' : ''}`}
+							data-anime='right'
+						>
 							<img
 								src={person?.images.webp}
 								alt={person?.name + 'image'}

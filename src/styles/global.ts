@@ -11,6 +11,32 @@ export const GlobalStyles = createGlobalStyle`
 		font-size: 62.5%;
     }
 
+	[data-anime] {
+		opacity: 0;
+	}
+
+	[data-anime='top'] {
+		transform: translateY(-4rem);
+	}
+
+	[data-anime='bottom'] {
+		transform: translateY(4rem);
+	}
+
+	[data-anime='left'] {
+		transform: translateX(-4rem);
+	}
+
+	[data-anime='right'] {
+		transform: translateX(4rem);
+	}
+
+	[data-anime].animate {
+		opacity: 1;
+		transform: translate(0);
+		transition: 0.8s;
+	}
+
     body {
 		display: flex;
         min-height: 100vh;

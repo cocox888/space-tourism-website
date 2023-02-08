@@ -21,6 +21,7 @@ const Destination: React.FC = () => {
 
 	const [destination, setDestination] = useState<destinationType>()
 	const [destinationIndex, setDestinationIndex] = useState<number>()
+	const [animate, setAnimate] = useState<boolean>()
 
 	const { data } = useQuery<destinationType[]>(
 		'destinations',
@@ -33,6 +34,8 @@ const Destination: React.FC = () => {
 
 	useEffect(() => {
 		document.body.classList.add('bg-destination')
+
+		setAnimate(true)
 
 		return () => {
 			document.body.classList.remove('bg-destination')
@@ -51,8 +54,14 @@ const Destination: React.FC = () => {
 		}
 	}, [destinationIndex])
 
+	useEffect(() => {
+		setTimeout(() => setAnimate(true), 100)
+	}, [animate])
+
 	const handleClickNavLink = (e: React.MouseEvent<HTMLElement>) => {
 		const newDestinationIndex = e.currentTarget.getAttribute('data-number')
+
+		setAnimate(false)
 
 		if (newDestinationIndex && data) {
 			setDestinationIndex(parseInt(newDestinationIndex))
@@ -82,8 +91,12 @@ const Destination: React.FC = () => {
 						<span>01</span>
 						PICK YOUR DESTINATION
 					</Heading>
+
 					<div className='main'>
-						<div className='img-area'>
+						<div
+							className={`img-area ${animate ? 'animate' : ''}`}
+							data-anime='left'
+						>
 							<img
 								src={destination?.images.webp}
 								alt={destination?.name + 'image'}
@@ -110,59 +123,66 @@ const Destination: React.FC = () => {
 									))}
 								</ul>
 							</nav>
-							<Heading
-								level={2}
-								color={'target'}
-								size={'font100'}
-								fontWeight={400}
-								fontFamily={'familyA'}
+							<div
+								className={`text-area ${
+									animate ? 'animate' : ''
+								}`}
+								data-anime='right'
 							>
-								{destination?.name.toUpperCase()}
-							</Heading>
-							<BodyText>{destination?.description}</BodyText>
-							<div className='line'></div>
-							<div className='footer'>
-								<div className='distance'>
-									<Heading
-										level={3}
-										color={'secondary'}
-										size={'font14'}
-										fontWeight={400}
-										letterSpacing={2.36}
-										fontFamily={'familyB'}
-									>
-										AVG. DISTANCE
-									</Heading>
-									<Heading
-										level={4}
-										color={'target'}
-										size={'font28'}
-										fontWeight={400}
-										fontFamily={'familyA'}
-									>
-										{destination?.distance.toUpperCase()}
-									</Heading>
-								</div>
-								<div className='travel-time'>
-									<Heading
-										level={3}
-										color={'secondary'}
-										size={'font14'}
-										fontWeight={400}
-										letterSpacing={2.36}
-										fontFamily={'familyB'}
-									>
-										EST. TRAVEL TIME
-									</Heading>
-									<Heading
-										level={4}
-										color={'target'}
-										size={'font28'}
-										fontWeight={400}
-										fontFamily={'familyA'}
-									>
-										{destination?.travel.toUpperCase()}
-									</Heading>
+								<Heading
+									level={2}
+									color={'target'}
+									size={'font100'}
+									fontWeight={400}
+									fontFamily={'familyA'}
+								>
+									{destination?.name.toUpperCase()}
+								</Heading>
+								<BodyText>{destination?.description}</BodyText>
+								<div className='line'></div>
+								<div className='footer'>
+									<div className='distance'>
+										<Heading
+											level={3}
+											color={'secondary'}
+											size={'font14'}
+											fontWeight={400}
+											letterSpacing={2.36}
+											fontFamily={'familyB'}
+										>
+											AVG. DISTANCE
+										</Heading>
+										<Heading
+											level={4}
+											color={'target'}
+											size={'font28'}
+											fontWeight={400}
+											fontFamily={'familyA'}
+										>
+											{destination?.distance.toUpperCase()}
+										</Heading>
+									</div>
+									<div className='travel-time'>
+										<Heading
+											level={3}
+											color={'secondary'}
+											size={'font14'}
+											fontWeight={400}
+											letterSpacing={2.36}
+											fontFamily={'familyB'}
+										>
+											EST. TRAVEL TIME
+										</Heading>
+										<Heading
+											level={4}
+											color={'target'}
+											size={'font28'}
+											fontWeight={400}
+											fontFamily={'familyA'}
+										>
+											{destination?.travel.toUpperCase()}
+										</Heading>
+									</div>
 								</div>
 							</div>
 						</div>

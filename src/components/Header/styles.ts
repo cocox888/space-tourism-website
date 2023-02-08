@@ -29,11 +29,17 @@ export const Container = styled.header`
 			max-width: 47.3rem;
 			width: 100%;
 			height: 0.1rem;
-			transform: translateX(6.3rem);
+			transform: scaleX(0) translateX(6.3rem);
 			background-color: rgba(255, 255, 255, 0.25);
+			transform: scaleX(0);
+			transition: 0.8s;
 
-			@media (max-width: ${theme.devices.tablet}) {
+			@media (max-width: ${theme.devices.desktop}) {
 				display: none;
+			}
+
+			&.animate {
+				transform: scaleX(1) translateX(6.3rem);
 			}
 		}
 
@@ -79,12 +85,15 @@ export const Container = styled.header`
 			display: flex;
 			flex: 1;
 			justify-content: center;
+			max-width: 75.5rem;
 			height: inherit;
 			padding: 0 5.6rem;
 			margin-left: 3.2rem;
 			background: rgba(255, 255, 255, 0.04);
 			backdrop-filter: blur(40.7742px);
-			transition: 0.3s;
+			transition: 0.8s;
+			transform: scaleY(0);
+			overflow-y: hidden;
 
 			ul {
 				display: flex;
@@ -177,6 +186,7 @@ export const Container = styled.header`
 			}
 
 			@media (max-width: ${theme.devices.mobile}) {
+				display: none;
 				justify-content: start;
 				position: fixed;
 				top: 0;
@@ -186,11 +196,22 @@ export const Container = styled.header`
 				height: 100vh;
 				padding-left: 3.2rem;
 				padding-top: 12rem;
-				display: none;
+				transform: translateX(70vw) !important;
+				opacity: 0;
+				transition: 0.5s;
 
 				&.active {
 					display: flex;
 				}
+
+				&.mobile-animate {
+					opacity: 1;
+					transform: translateX(0) !important;
+				}
+			}
+
+			&.animate {
+				transform: scaleY(1);
 			}
 		}
 	}
