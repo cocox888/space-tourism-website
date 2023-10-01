@@ -5,6 +5,7 @@ export const Container = styled.div`
 	margin-top: 7.5rem;
 	display: flex;
 	flex: 1;
+	overflow: hidden;
 
 	.content {
 		display: flex;

@@ -6,6 +6,7 @@ export const Container = styled.div`
 	flex-direction: column;
 	flex: 1;
 	margin-top: 7.5rem;
+	overflow: hidden;
 
 	.content {
 		display: flex;
@@ -163,6 +164,7 @@ export const Container = styled.div`
 				margin-right: -3rem;
 
 				img {
+					max-height: 64rem;
 					@media (max-width: ${theme.devices.tablet}) {
 						max-width: 36rem;
 					}
